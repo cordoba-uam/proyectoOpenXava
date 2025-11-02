@@ -9,10 +9,13 @@ import lombok.*;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(length=10)
+    private int id;
 
     @Column(length = 100, nullable = false)
     @Required
     private String nombre;
+
+    @Embedded @NoFrame
+    private Direccion direccion;
 }
