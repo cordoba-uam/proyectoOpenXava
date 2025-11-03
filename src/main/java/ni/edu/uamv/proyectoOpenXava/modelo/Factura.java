@@ -2,6 +2,8 @@ package ni.edu.uamv.proyectoOpenXava.modelo;
 
 import java.time.*;
 import javax.persistence.*;
+
+import calculadoras.CalculadoraSiguienteNumeroParaAnio;
 import org.hibernate.annotations.GenericGenerator;
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
@@ -23,6 +25,7 @@ public class Factura {
     private String anio;
 
     @Column (length = 6)
+    @DefaultValueCalculator(value= CalculadoraSiguienteNumeroParaAnio.class, properties= @PropertyValue(name="anio"))
     private int numero;
 
     @Required
