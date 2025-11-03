@@ -1,6 +1,7 @@
 package ni.edu.uamv.proyectoOpenXava.modelo;
 
 import java.time.*;
+import java.util.Collection;
 import javax.persistence.*;
 
 import calculadoras.CalculadoraSiguienteNumeroParaAnio;
@@ -34,4 +35,11 @@ public class Factura {
 
     @TextArea
     String observaciones;
+
+    @ManyToOne(fetch=FetchType.LAZY, optional=false) // El cliente es obligatorio
+    Cliente cliente;
+
+    @ElementCollection
+    @ListProperties("producto.numero, producto.descripcion, cantidad")
+    Collection<Detalle> detalles;
 }
