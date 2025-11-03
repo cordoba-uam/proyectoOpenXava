@@ -12,6 +12,13 @@ import lombok.*;
 
 @Entity
 @Setter @Getter
+
+@View(members=
+        "anyo, numero, fecha;" + // Separados por coma significa en la misma línea
+                "cliente;" + // Punto y coma significa nueva línea
+                "detalles;" +
+                "observaciones"
+)
 public class Factura {
 
     @Id
@@ -37,6 +44,7 @@ public class Factura {
     String observaciones;
 
     @ManyToOne(fetch=FetchType.LAZY, optional=false) // El cliente es obligatorio
+    @ReferenceView("Simple")
     Cliente cliente;
 
     @ElementCollection
