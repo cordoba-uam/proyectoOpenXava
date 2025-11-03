@@ -1,12 +1,2 @@
 /*C3*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C4*/SET SCHEMA PUBLIC
-alter table Cliente add column codigoPostal integer
-alter table Cliente add column municipio varchar(20)
-alter table Cliente add column provincia varchar(30)
-alter table Cliente add column viaPublica varchar(30)
-alter table Producto add column foto varchar(32)
-alter table Producto add column observaciones varchar(255)
-alter table Producto add column valor numeric(19,2)
-INSERT INTO CLIENTE VALUES(2,'Jos\u00e9 Moncada',12345,'Garch\u00f3n','Mulukuku','San Pedrito')
-COMMIT
